@@ -16,6 +16,11 @@ class PostRepository
     {
         return $this->post->get();
     }
+    public function findByid($id)
+    {
+        $post = Post::where('id', $id)->firstOrfail();
+        return ($post);
+    }
 
     public function save($data)
     {

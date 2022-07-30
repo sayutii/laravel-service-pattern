@@ -3,17 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Services\PostService;
+use App\Repository\PostRepository;
 use Exception;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
     protected $postService;
+    protected $postRepository;
 
-    public function __construct(PostService $postService)
-    {
-        $this -> postService = $postService;
-    }
+    public function __construct(
+        PostService $postService,
+        PostRepository $postRepository
+
+        ){
+            $this -> postService = $postService;
+            $this -> postRepository = $postRepository;
+        }
+
 
     public function index()
     {
@@ -53,7 +60,7 @@ class PostController extends Controller
 
     public function show($id)
     {
-        $post = $this->postService->findByid($id);
+        $post = $this->postRepository->findByid($id);
         return $post;
     }
 }

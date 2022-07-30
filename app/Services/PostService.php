@@ -37,9 +37,9 @@ class PostService
         return $result;
     }
 
-    public function findByid($id)
-    {
-        $post = Post::where('id', $id)->firstOrfail();
-        return ($post);
-    }
+    // public function findByid($id)
+    // {
+    //     $post = Post::where('id', $id)->firstOrfail();
+    //     return ($post);
+    // }
 }
